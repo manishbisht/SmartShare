@@ -4,6 +4,7 @@
 import React, {Component} from 'react';
 import Avatar from 'material-ui/Avatar';
 import Subheader from 'material-ui/Subheader';
+import Header from './Header';
 
 class Profile extends Component {
     componentWillMount() {
@@ -12,6 +13,8 @@ class Profile extends Component {
 
     render() {
         return (
+        <div>
+            <Header handleToggle={this.props.handleToggle} open={this.props.open} openTab={this.props.openTab} />
             <center>
                 <Avatar
                     src={this.props.currentUser.photoURL}
@@ -20,6 +23,7 @@ class Profile extends Component {
                 <Subheader>Name: {this.props.currentUser.displayName}</Subheader>
                 <Subheader>Email: {this.props.currentUser.email} {this.props.currentUser.emailVerified ? '(Verified)' : ''}</Subheader>
             </center>
+        </div>
         );
     }
 }
