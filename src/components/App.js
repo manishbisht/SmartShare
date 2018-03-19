@@ -31,7 +31,7 @@ class App extends Component {
         firebase.auth().onAuthStateChanged(function (user) {
             if (user) {
                 self.setState({
-                    user: user,
+                    currentUser: user,
                     isLoggedIn: true
                 });
             }
@@ -74,7 +74,7 @@ class App extends Component {
     render() {
         if (this.state.isLoggedIn) {
             return (
-                <Dashboard />
+                <Dashboard currentUser={this.state.currentUser} />
             );
         } else {
             return (
